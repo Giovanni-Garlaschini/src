@@ -4,12 +4,13 @@ import { TodoService } from './services/todo.service';
 import { Todo } from './models/todo.model';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { RandomPokemonComponent } from './components/random-pokemon/random-pokemon.component';
 
 // Componente principale dell'applicazione //
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, TodoFormComponent, TodoListComponent],
+  imports: [CommonModule, TodoFormComponent, TodoListComponent, RandomPokemonComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

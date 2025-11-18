@@ -1,0 +1,38 @@
+<div class="pokemon-container">
+  <h2>Generatore Pokemon Casuale</h2>
+
+  <button
+    class="random-pokemon-btn"
+    (click)="generateRandomPokemon()"
+    [disabled]="isLoading">
+    {{ isLoading ? 'Caricamento...' : 'Random Pokemon' }}
+  </button>
+
+  @if (error) {
+    <div class="error-message">
+      {{ error }}
+    </div>
+  }
+
+  @if (currentPokemon) {
+    <div class="pokemon-display">
+      <img
+        [src]="currentPokemon.sprites.front_default"
+        [alt]="currentPokemon.name"
+        class="pokemon-image">
+
+      <div class="pokemon-info">
+        <p><strong>Nome:</strong> {{ currentPokemon.name }}</p>
+        <p><strong>Specie:</strong> {{ currentPokemon.species.name }}</p>
+        <p><strong>Abilità:</strong></p>
+        <ul>
+          @for (ability of currentPokemon.abilities; track ability.slot) {
+            <li>{{ ability.ability.name }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  }
+
+  <p class="info-text">I dati del Pokemon verranno aggiunti automaticamente alla lista Todo</p>
+</div>

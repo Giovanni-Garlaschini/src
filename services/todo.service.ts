@@ -11,7 +11,7 @@ export class TodoService {
 
   constructor() {}
 
-  // Ottiene tutte le todo
+  // Ottiene tutte le todo //
   getTodos(): Todo[] {
     return this.todos;
   }
