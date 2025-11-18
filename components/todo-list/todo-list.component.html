@@ -1,0 +1,15 @@
+<!-- Lista delle todo -->
+<div class="todo-list">
+  <!-- Utilizza ngFor per iterare su tutte le todo filtrate -->
+  <app-todo-item
+    *ngFor="let todo of todos | todoFilter:currentFilter"
+    [todo]="todo"
+    (toggleCompleted)="onToggleComplete($event)"
+    (deleteTodo)="onDeleteTodo($event)">
+  </app-todo-item>
+
+  <!-- Messaggio quando non ci sono todo -->
+  <div *ngIf="(todos | todoFilter:currentFilter).length === 0" class="empty-message">
+    No tasks found
+  </div>
+</div>

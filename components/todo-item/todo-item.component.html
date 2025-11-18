@@ -1,0 +1,31 @@
+<!-- Singola todo item -->
+<div class="todo-item" [class.completed]="todo.completed">
+  <div class="todo-content">
+    <!-- Checkbox per segnare come completata -->
+    <input
+      type="checkbox"
+      [checked]="todo.completed"
+      (change)="onToggleComplete()"
+      class="checkbox">
+
+    <div class="todo-details">
+      <span class="todo-title">{{ todo.title }}</span>
+      <div class="todo-info">
+        <span *ngIf="todo.assignedTo" class="assigned-to">
+          Assigned to: {{ todo.assignedTo }}
+        </span>
+        <span class="due-date">
+          Due: {{ formatDate(todo.dueDate) }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pulsante elimina, visibile solo se la todo è completata -->
+  <button
+    *ngIf="todo.completed"
+    (click)="onDelete()"
+    class="delete-button">
+    Delete
+  </button>
+</div>
