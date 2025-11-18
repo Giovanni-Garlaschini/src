@@ -48,7 +48,7 @@ export class RandomPokemonComponent {
       .map(a => a.ability.name)
       .join(', ');
 
-    const todoTitle = `Pokemon: ${pokemon.name} | Specie: ${pokemon.species.name} | Abilit‡: ${abilities}`;
+    const todoTitle = `Pokemon: ${pokemon.name} | Specie: ${pokemon.species.name} | Abilit√†: ${abilities}`;
 
     this.todoService.addTodo(
       todoTitle,
