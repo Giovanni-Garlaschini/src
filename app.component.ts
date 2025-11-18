@@ -5,7 +5,7 @@ import { Todo } from './models/todo.model';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 
-// Componente principale dell'applicazione
+// Componente principale dell'applicazione //
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -14,39 +14,39 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  todos: Todo[] = []; // Lista delle todo
-  currentFilter: string = 'all'; // Filtro corrente: all, active, completed
+  todos: Todo[] = []; // Lista delle todo //
+  currentFilter: string = 'all'; // Filtro corrente: all, active, completed //
 
-  // Inietta il service nel costruttore
+  // Inietta il service nel costruttore //
   constructor(private todoService: TodoService) {
-    // Carica le todo all'avvio
+    // Carica le todo all'avvio //
     this.loadTodos();
   }
 
-  // Carica tutte le todo dal service
+  // Carica tutte le todo dal service //
   loadTodos(): void {
     this.todos = this.todoService.getTodos();
   }
 
-  // Gestisce l'aggiunta di una nuova todo
+  // Gestisce l'aggiunta di una nuova todo //
   onTodoAdded(data: {title: string, assignedTo: string, dueDate: Date | null}): void {
     this.todoService.addTodo(data.title, data.assignedTo, data.dueDate);
     this.loadTodos();
   }
 
-  // Gestisce il toggle dello stato di completamento
+  // Gestisce il toggle dello stato di completamento //
   onToggleComplete(id: number): void {
     this.todoService.toggleComplete(id);
     this.loadTodos();
   }
 
-  // Gestisce la cancellazione di una todo
+  // Gestisce la cancellazione di una todo //
   onDeleteTodo(id: number): void {
     this.todoService.deleteTodo(id);
     this.loadTodos();
   }
 
-  // Cambia il filtro corrente
+  // Cambia il filtro corrente //
   setFilter(filter: string): void {
     this.currentFilter = filter;
   }
