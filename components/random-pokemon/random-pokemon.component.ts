@@ -43,7 +43,7 @@ export class RandomPokemonComponent {
   }
 
   // Aggiunge i dati del Pokemon come una todo //
-  private addPokemonAsTodo(pokemon: Pokemon): void {
+  private addPokemonAsTodo(pokemon: Pokemon): void {9
     const abilities = pokemon.abilities
       .map(a => a.ability.name)
       .join(', ');
