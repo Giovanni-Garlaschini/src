@@ -5,7 +5,8 @@
     *ngFor="let todo of todos | todoFilter:currentFilter"
     [todo]="todo"
     (toggleCompleted)="onToggleComplete($event)"
-    (deleteTodo)="onDeleteTodo($event)">
+    (deleteTodo)="onDeleteTodo($event)"
+    (updateTodo)="onUpdateTodo($event)">
   </app-todo-item>
 
   <!-- Messaggio quando non ci sono todo -->

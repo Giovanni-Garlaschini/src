@@ -47,6 +47,12 @@ export class AppComponent {
     this.loadTodos();
   }
 
+  // Gestisce l'aggiornamento di una todo esistente //
+  onUpdateTodo(updatedTodo: Todo): void {
+    this.todoService.updateTodo(updatedTodo);
+    this.loadTodos();
+  }
+
   // Cambia il filtro corrente //
   setFilter(filter: string): void {
     this.currentFilter = filter;

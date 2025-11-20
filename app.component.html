@@ -38,7 +38,8 @@
       [todos]="todos"
       [currentFilter]="currentFilter"
       (toggleCompleted)="onToggleComplete($event)"
-      (deleteTodo)="onDeleteTodo($event)">
+      (deleteTodo)="onDeleteTodo($event)"
+      (updateTodo)="onUpdateTodo($event)">
     </app-todo-list>
   </main>
 </div>

@@ -20,6 +20,8 @@ export class TodoListComponent {
   // Output: emette eventi al componente padre //
   @Output() toggleCompleted = new EventEmitter<number>();
   @Output() deleteTodo = new EventEmitter<number>();
+  // Output: emette l'evento di modifica con la todo aggiornata //
+  @Output() updateTodo = new EventEmitter<Todo>();
 
   constructor() {}
 
@@ -31,5 +33,10 @@ export class TodoListComponent {
   // Gestisce la cancellazione della todo //
   onDeleteTodo(id: number): void {
     this.deleteTodo.emit(id);
+  }
+
+  // Gestisce l'aggiornamento della todo //
+  onUpdateTodo(todo: Todo): void {
+    this.updateTodo.emit(todo);
   }
 }

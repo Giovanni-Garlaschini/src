@@ -52,6 +52,34 @@
   font-weight: 500;
 }
 
+/* Contenitore per i pulsanti azione */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Pulsante modifica con icona penna */
+.edit-button {
+  background-color: #5667ff;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.edit-button:hover {
+  background-color: #3045ff;
+}
+
+/* Pulsante elimina */
 .delete-button {
   background-color: #f44336;
   color: white;
@@ -64,4 +92,85 @@
 
 .delete-button:hover {
   background-color: #da190b;
+}
+
+/* Modalità modifica */
+.edit-mode {
+  width: 100%;
+}
+
+/* Input di modifica */
+.edit-input {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.edit-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+/* Input titolo - occupa tutta la larghezza */
+.edit-title {
+  width: 100%;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+/* Contenitore per input assegnatario e data */
+.edit-info {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Input assegnatario */
+.edit-assigned {
+  flex: 1;
+}
+
+/* Input data */
+.edit-date {
+  flex: 1;
+}
+
+/* Contenitore pulsanti salva/annulla */
+.edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Pulsante salva */
+.save-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.save-button:hover {
+  background-color: #45a049;
+}
+
+/* Pulsante annulla */
+.cancel-button {
+  background-color: #999;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.cancel-button:hover {
+  background-color: #777;
 }

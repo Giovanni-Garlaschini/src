@@ -9,23 +9,69 @@
       class="checkbox">
 
     <div class="todo-details">
-      <span class="todo-title">{{ todo.title }}</span>
-      <div class="todo-info">
-        <span *ngIf="todo.assignedTo" class="assigned-to">
-          Assigned to: {{ todo.assignedTo }}
-        </span>
-        <span class="due-date">
-          Date: {{ formatDate(todo.dueDate) }}
-        </span>
+      <!-- Modalità visualizzazione: mostra i dati del task -->
+      <div *ngIf="!isEditing">
+        <span class="todo-title">{{ todo.title }}</span>
+        <div class="todo-info">
+          <span *ngIf="todo.assignedTo" class="assigned-to">
+            Assigned to: {{ todo.assignedTo }}
+          </span>
+          <span class="due-date">
+            Date: {{ formatDate(todo.dueDate) }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Modalità modifica: mostra i campi input per modificare il task -->
+      <div *ngIf="isEditing" class="edit-mode">
+        <!-- Input per modificare il titolo -->
+        <input
+          type="text"
+          [(ngModel)]="editedTitle"
+          class="edit-input edit-title"
+          placeholder="Task title">
+
+        <div class="edit-info">
+          <!-- Input per modificare la persona a cui assegni il task -->
+          <input
+            type="text"
+            [(ngModel)]="editedAssignedTo"
+            class="edit-input edit-assigned"
+            placeholder="Assigned to">
+
+          <!-- Input per modificare la data di scadenza -->
+          <input
+            type="date"
+            [(ngModel)]="editedDueDate"
+            class="edit-input edit-date">
+        </div>
+
+        <!-- Pulsanti per salvare o annullare le modifiche -->
+        <div class="edit-actions">
+          <button (click)="saveEdit()" class="save-button">Save</button>
+          <button (click)="cancelEdit()" class="cancel-button">Cancel</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Pulsante elimina, visibile solo se la todo è completata -->
-  <button
-    *ngIf="todo.completed"
-    (click)="onDelete()"
-    class="delete-button">
-    Delete
-  </button>
+  <!-- Pulsanti azione -->
+  <div class="action-buttons">
+    <!-- Pulsante modifica con icona penna, visibile solo se non in modalità modifica -->
+    <button
+      *ngIf="!isEditing"
+      (click)="startEdit()"
+      class="edit-button"
+      title="Modifica task">
+      ✏️
+    </button>
+
+    <!-- Pulsante elimina, visibile solo se la todo è completata -->
+    <button
+      *ngIf="todo.completed"
+      (click)="onDelete()"
+      class="delete-button">
+      Delete
+    </button>
+  </div>
 </div>

@@ -49,7 +49,7 @@ export class RandomPokemonComponent {
       .join(', ');
 
     const todoTitle = `Pokemon: ${pokemon.name} | Specie: ${pokemon.species.name} | Abilità: ${abilities}`;
-
+    
     this.todoService.addTodo(
       todoTitle,
       'Pokemon API',

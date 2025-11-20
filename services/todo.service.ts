@@ -43,4 +43,13 @@ export class TodoService {
       this.todos = this.todos.filter(t => t.id !== id);
     }
   }
+
+  // Aggiorna una todo esistente con i nuovi valori //
+  updateTodo(updatedTodo: Todo): void {
+    const index = this.todos.findIndex(t => t.id === updatedTodo.id);
+    if (index !== -1) {
+      // Sostituisce la todo esistente con quella aggiornata
+      this.todos[index] = updatedTodo;
+    }
+  }
 }
