@@ -7,7 +7,7 @@ import { Todo } from '../../models/todo.model';
 @Component({
   selector: 'app-todo-item',
   standalone: true,
-  imports: [CommonModule, FormsModule], // FormsModule aggiunto per supportare ngModel
+  imports: [CommonModule, FormsModule], // FormsModule aggiunto per supportare ngModel //
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css']
 })

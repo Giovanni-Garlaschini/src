@@ -4,29 +4,49 @@
 
   <!-- task title -->
   <div class="form-group">
-    <input
-      type="text"
-      [(ngModel)]="newTodoTitle"
-      placeholder="Task title"
-      class="input-field">
+    <div class="input-wrapper">
+      <input
+        type="text"
+        [(ngModel)]="newTodoTitle"
+        placeholder="Task title"
+        [class.input-field]="true"
+        [class.invalid-field]="isFieldInvalid('title')">
+      <span class="required-asterisk" *ngIf="isFieldInvalid('title')">*</span>
+    </div>
   </div>
 
   <!-- assigned to -->
   <div class="form-group">
-    <input
-      type="text"
-      [(ngModel)]="newTodoAssignedTo"
-      placeholder="Assigned to"
-      class="input-field">
+    <div class="input-wrapper">
+      <input
+        type="text"
+        [(ngModel)]="newTodoAssignedTo"
+        placeholder="Assigned to"
+        [class.input-field]="true"
+        [class.invalid-field]="isFieldInvalid('assignedTo')">
+      <span class="required-asterisk" *ngIf="isFieldInvalid('assignedTo')">*</span>
+    </div>
   </div>
 
   <!-- date -->
   <div class="form-group">
-    <input
-      type="date"
-      [(ngModel)]="newTodoDueDate"
-      class="input-field">
+    <div class="input-wrapper">
+      <input
+        type="date"
+        [(ngModel)]="newTodoDueDate"
+        [class.input-field]="true"
+        [class.invalid-field]="isFieldInvalid('dueDate')">
+      <span class="required-asterisk" *ngIf="isFieldInvalid('dueDate')">*</span>
+    </div>
   </div>
 
-  <button (click)="addTodo()" class="add-button">Add Task</button>
+  <div class="button-container">
+    <button
+      (click)="addTodo()"
+      [class.add-button]="true"
+      [class.disabled-button]="!isFormValid()">
+      Add Task
+    </button>
+    <span class="error-message" *ngIf="showValidationError">Impossibile aggiungere task!</span>
+  </div>
 </div>

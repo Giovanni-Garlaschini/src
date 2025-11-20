@@ -14,12 +14,38 @@ h2 {
   margin-bottom: 15px;
 }
 
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .input-field {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
+}
+
+.invalid-field {
+  border-color: #ff0000;
+  border-width: 2px;
+}
+
+.required-asterisk {
+  position: absolute;
+  right: 10px;
+  color: #ff0000;
+  font-size: 20px;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .add-button {
@@ -30,8 +56,24 @@ h2 {
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
+  transition: background-color 0.3s;
 }
 
 .add-button:hover {
   background-color: #45a049;
+}
+
+.disabled-button {
+  background-color: #999999;
+  cursor: not-allowed;
+}
+
+.disabled-button:hover {
+  background-color: #999999;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 14px;
+  font-weight: bold;
 }
