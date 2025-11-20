@@ -174,3 +174,85 @@
 .cancel-button:hover {
   background-color: #777;
 }
+
+/* Overlay per il pop-up di conferma cancellazione */
+/* Copre l'intera schermata con un fondo scuro semitrasparente */
+.delete-confirm-overlay {
+  position: fixed; /* Posizionamento fisso rispetto alla finestra del browser */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Sfondo nero con 50% di opacità */
+  display: flex; /* Usa flexbox per centrare il dialog */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra orizzontalmente */
+  z-index: 1000; /* Assicura che l'overlay sia sopra tutti gli altri elementi */
+}
+
+/* Dialog di conferma */
+/* Box bianco centrale che contiene il messaggio e i pulsanti */
+.delete-confirm-dialog {
+  background-color: white;
+  padding: 30px; /* Spaziatura interna generosa */
+  border-radius: 8px; /* Angoli arrotondati */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Ombra per dare profondità */
+  max-width: 400px; /* Larghezza massima del dialog */
+  width: 90%; /* Larghezza responsive (90% della larghezza disponibile) */
+}
+
+/* Messaggio di conferma */
+/* Testo che chiede conferma all'utente */
+.delete-confirm-message {
+  font-size: 16px;
+  color: #333;
+  margin: 0 0 20px 0; /* Margine inferiore per separare dai pulsanti */
+  text-align: center; /* Centra il testo */
+  line-height: 1.5; /* Altezza della riga per migliore leggibilità */
+}
+
+/* Contenitore bottoni di conferma */
+/* Dispone i pulsanti SI e NO in orizzontale */
+.delete-confirm-buttons {
+  display: flex;
+  gap: 12px; /* Spazio tra i due pulsanti */
+  justify-content: center; /* Centra i pulsanti orizzontalmente */
+}
+
+/* Pulsante SI */
+/* Pulsante rosso per confermare l'eliminazione */
+.confirm-yes-button {
+  background-color: #f44336; /* Rosso per indicare azione distruttiva */
+  color: white;
+  padding: 10px 30px; /* Padding per rendere il pulsante cliccabile */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+  font-size: 14px;
+  font-weight: 600; /* Testo in grassetto */
+  transition: background-color 0.2s; /* Transizione fluida al cambio di colore */
+}
+
+/* Effetto hover sul pulsante SI */
+.confirm-yes-button:hover {
+  background-color: #da190b; /* Rosso più scuro quando il mouse passa sopra */
+}
+
+/* Pulsante NO */
+/* Pulsante grigio per annullare l'operazione */
+.confirm-no-button {
+  background-color: #999; /* Grigio neutro */
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+/* Effetto hover sul pulsante NO */
+.confirm-no-button:hover {
+  background-color: #777; /* Grigio più scuro quando il mouse passa sopra */
+}

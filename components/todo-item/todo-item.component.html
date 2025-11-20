@@ -75,3 +75,20 @@
     </button>
   </div>
 </div>
+
+<!-- Pop-up di conferma cancellazione -->
+<!-- L'overlay viene mostrato solo quando showDeleteConfirm è true -->
+<div *ngIf="showDeleteConfirm" class="delete-confirm-overlay">
+  <!-- Dialog centrale con il messaggio di conferma -->
+  <div class="delete-confirm-dialog">
+    <!-- Messaggio che chiede conferma all'utente -->
+    <p class="delete-confirm-message">Sei sicuro di voler cancellare questo task?</p>
+    <!-- Contenitore dei pulsanti di scelta -->
+    <div class="delete-confirm-buttons">
+      <!-- Pulsante SI: conferma ed elimina il task -->
+      <button (click)="confirmDelete()" class="confirm-yes-button">SI</button>
+      <!-- Pulsante NO: annulla e chiude il pop-up -->
+      <button (click)="cancelDelete()" class="confirm-no-button">NO</button>
+    </div>
+  </div>
+</div>

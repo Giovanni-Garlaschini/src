@@ -24,6 +24,9 @@ export class TodoItemComponent {
   // Variabile per tracciare se siamo in modalità modifica //
   isEditing: boolean = false;
 
+  // Variabile per mostrare/nascondere il pop-up di conferma cancellazione //
+  showDeleteConfirm: boolean = false;
+
   // Variabili temporanee per memorizzare i valori durante la modifica //
   editedTitle: string = '';
   editedAssignedTo: string = '';
@@ -36,9 +39,27 @@ export class TodoItemComponent {
     this.toggleCompleted.emit(this.todo.id);
   }
 
-  // Gestisce la cancellazione della todo //
+  // Mostra il pop-up di conferma cancellazione //
+  // Viene chiamato quando l'utente clicca il pulsante "Delete" //
   onDelete(): void {
+    // Imposta showDeleteConfirm a true per visualizzare il pop-up //
+    this.showDeleteConfirm = true;
+  }
+
+  // Conferma la cancellazione ed emette l'evento //
+  // Viene chiamato quando l'utente clicca il pulsante "SI" nel pop-up //
+  confirmDelete(): void {
+    // Emette l'evento di cancellazione al componente padre con l'id della todo //
     this.deleteTodo.emit(this.todo.id);
+    // Nasconde il pop-up di conferma //
+    this.showDeleteConfirm = false;
+  }
+
+  // Annulla la cancellazione e chiude il pop-up //
+  // Viene chiamato quando l'utente clicca il pulsante "NO" nel pop-up //
+  cancelDelete(): void {
+    // Nasconde il pop-up senza eliminare il task //
+    this.showDeleteConfirm = false;
   }
 
   // Attiva la modalità modifica e inizializza i campi con i valori correnti //
