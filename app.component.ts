@@ -1,60 +1,13 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TodoService } from './services/todo.service';
-import { Todo } from './models/todo.model';
-import { TodoFormComponent } from './components/todo-form/todo-form.component';
-import { TodoListComponent } from './components/todo-list/todo-list.component';
-import { RandomPokemonComponent } from './components/random-pokemon/random-pokemon.component';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
 // Componente principale dell'applicazione //
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, TodoFormComponent, TodoListComponent, RandomPokemonComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  todos: Todo[] = []; // Lista delle todo //
-  currentFilter: string = 'all'; // Filtro corrente: all, active, completed //
-
-  // Inietta il service nel costruttore //
-  constructor(private todoService: TodoService) {
-    // Carica le todo all'avvio //
-    this.loadTodos();
-  }
-
-  // Carica tutte le todo dal service //
-  loadTodos(): void {
-    this.todos = this.todoService.getTodos();
-  }
-
-  // Gestisce l'aggiunta di una nuova todo //
-  onTodoAdded(data: {title: string, assignedTo: string, dueDate: Date | null}): void {
-    this.todoService.addTodo(data.title, data.assignedTo, data.dueDate);
-    this.loadTodos();
-  }
-
-  // Gestisce il toggle dello stato di completamento //
-  onToggleComplete(id: number): void {
-    this.todoService.toggleComplete(id);
-    this.loadTodos();
-  }
-
-  // Gestisce la cancellazione di una todo //
-  onDeleteTodo(id: number): void {
-    this.todoService.deleteTodo(id);
-    this.loadTodos();
-  }
-
-  // Gestisce l'aggiornamento di una todo esistente //
-  onUpdateTodo(updatedTodo: Todo): void {
-    this.todoService.updateTodo(updatedTodo);
-    this.loadTodos();
-  }
-
-  // Cambia il filtro corrente //
-  setFilter(filter: string): void {
-    this.currentFilter = filter;
-  }
 }
